@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- excellent tutorial on this: https://scotch.io/tutorials/submitting-ajax-forms-with-jquery -->
+
+<head>
+   <meta name="author" content="Andy Sisinger">
+   <meta name="description" content="Front end interface for gostockd server">
+   <title>Gostock Job Creator</title>
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+   <script src="jquery-3.2.1.min.js"></script>
+
+   <script>
+   $(document).ready(function() {
+
+       // process the form
+       $('form').submit(function(event) {
+
+           // get the form data
+           // there are many ways to get this data using jQuery (you can use the class or id also)
+           var formData = {
+               'command'    : $('input[name=command]').val(),
+               'symbol'     : $('input[name=symbol]').val(),
+               'startDate'  : $('input[name=startDate]').val(),
+               'endDate'    : $('input[name=endDate]').val(),
+               'popSize'    : $('input[name=popSize]').val(),
+               'mutRate'    : $('input[name=mutRate]').val(),
+               'maxGen'     : $('input[name=maxGen]').val(),
+           };
+
+           // process the form
+           $.ajax({
+               type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+               url         : '/api/v1/jobs', // the url where we want to POST
+               data        : formData, // our data object
+               dataType    : 'json', // what type of data do we expect back from the server
+               encode          : true
+           })
+               // using the done promise callback
+               .done(function(data) {
+
+                   // log data to the console so we can see
+                   console.log(data);
+
+                   // here we will handle errors and validation messages
+               });
+
+           // stop the form from submitting the normal way and refreshing the page
+           event.preventDefault();
+       });
+
+   });
+</script>
+
+</head>
+
+<body>
+<h1>Gostock App</h1>
+<form>
+  Command:  <input type="text" name="command" id="command" value="gastockagent">
+	<br>
+	Symbol:  <input type="text" name="symbol" id="symbol" value="RSYS">
+	<br>
+	Data From Date: <input type="text" name="startDate" id="startDate" value="2016-12-26">
+	<br>
+	Data To Date: <input type="text" name="endDate" id="endDate" value="2017-12-27">
+	<br>
+	Population Size: <input type="text" name="popSize" id="popSize" value="200">
+	<br>
+	Mutation Rate: <input type="text" name="mutRate" id="mutRate" value="0.05">
+	<br>
+	Maximum Generations: <input type="text" name="maxGen" id="maxGen" value="1000">
+	<br><br>
+	<input type="submit" value="Submit">
+</form>
+
+<p>
+  <ul>
+  <li><a href="/api/v1/jobs">Job list (JSON)</a></li>
+  <li><a href="/api/v1/workers">Worker list (JSON)</a></li>
+</ul>
+</p>
+
+</body>
+</html>
