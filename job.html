@@ -21,12 +21,6 @@
            // there are many ways to get this data using jQuery (you can use the class or id also)
            var formData = {
                'command'    : $('input[name=command]').val(),
-               'symbol'     : $('input[name=symbol]').val(),
-               'startDate'  : $('input[name=startDate]').val(),
-               'endDate'    : $('input[name=endDate]').val(),
-               'popSize'    : $('input[name=popSize]').val(),
-               'mutRate'    : $('input[name=mutRate]').val(),
-               'maxGen'     : $('input[name=maxGen]').val(),
            };
 
            // process the form
@@ -59,18 +53,6 @@
 <h1>Deepthought Cluster - Job Submission</h1>
 <form>
   Command:  <input type="text" name="command" id="command" value="sleep 5; echo hello">
-	<br>
-	Symbol:  <input type="text" name="symbol" id="symbol" value="RSYS">
-	<br>
-	Data From Date: <input type="text" name="startDate" id="startDate" value="2016-12-26">
-	<br>
-	Data To Date: <input type="text" name="endDate" id="endDate" value="2017-12-27">
-	<br>
-	Population Size: <input type="text" name="popSize" id="popSize" value="200">
-	<br>
-	Mutation Rate: <input type="text" name="mutRate" id="mutRate" value="0.05">
-	<br>
-	Maximum Generations: <input type="text" name="maxGen" id="maxGen" value="1000">
 	<br><br>
 	<input type="submit" value="Submit">
 </form>
@@ -93,6 +75,7 @@
 	</ul>
   <li><a href="/api/v1/workers">Worker list (JSON)</a></li>
 </ul>
+<a href="/">Back to Hompage</a>
 </p>
 
 </body>
