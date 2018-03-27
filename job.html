@@ -77,7 +77,20 @@
 
 <p>
   <ul>
-  <li><a href="/api/v1/jobs">Job list (JSON)</a></li>
+  <li><a href="/api/v1/jobs">Full Job list (JSON)</a></li>
+	<ul>
+		<li><a href="/api/v1/jobs/running">Running (JSON)</a></li>
+		<li><a href="/api/v1/jobs/dispatched">Dispatched (JSON)</a></li>
+		<li><a href="/api/v1/jobs/completed">Completed (JSON)</a></li>
+		<li><a href="/api/v1/jobs/cancelled">Cancelled (JSON)</a></li>
+		<li><a href="/api/v1/jobs/successful">Successful (JSON)</a></li>
+		<li><a href="/api/v1/jobs/notRunning">Not Running (JSON)</a></li>
+		<li><a href="/api/v1/jobs/notDispatched">Not Dispatched / Waiting in Queue (JSON)</a></li>
+		<li><a href="/api/v1/jobs/notCompleted">Not Completed (JSON)</a></li>
+		<li><a href="/api/v1/jobs/notCancelled">Not Cancelled (JSON)</a></li>
+		<li><a href="/api/v1/jobs/notSuccessful">Not Successful (JSON)</a></li>
+		<li><a href="/api/v1/jobs/failed">Failed (JSON)</a></li>
+	</ul>
   <li><a href="/api/v1/workers">Worker list (JSON)</a></li>
 </ul>
 </p>
