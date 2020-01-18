@@ -23,6 +23,13 @@
   <li><a href="/api/v1/workers">Worker list (JSON)</a></li>
 </ul>
 </p>
+<br>
+<br>
+<p>
+<pre>
+curl -H "Content-Type: application/json" -d '{"args":{"command":"sleep 5; echo hello"}}' http://192.168.1.231:8080/api/v1/jobs
+</pre>
+</p>
 
 </body>
 </html>
